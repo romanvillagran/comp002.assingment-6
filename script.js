@@ -14,6 +14,20 @@
 function savePreferences(event){
     //this prevents the default form submission action to avoid reloading the page
     event.prevent();
+    
+    //get the user's name from input field
+    const name = document.getElementById(name).value;
+    
+    //gets the select a background color from the color picker 
+    const bgColor = document.getElementById('bg-color').value;
 
-    const name = document.getElementById(name)
+    //gets the selected text color form the color picker
+    const fgColor = document.getElementById('fg-color').value;
+
+    // this saves the user's preferences in localstorage
+    localStorage.setItem('userName', name);
+    localStorage.setItem('bgColor', bgColor);
+    localStorage.setItem('fgColor', fgColor);
+
+    
 }

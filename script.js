@@ -13,16 +13,16 @@
 // this function will be called when the form is submitted
 function savePreferences(event){
     //this prevents the default form submission action to avoid reloading the page
-    event.prevent();
+    event.preventDefault();
     
     //get the user's name from input field
-    const name = document.getElementById(name).value;
+    const name = document.getElementById('name').value;
     
     //gets the select a background color from the color picker 
-    const bgColor = document.getElementById('bg-color').value;
+    const bgColor = document.getElementById('background-color').value;
 
     //gets the selected text color form the color picker
-    const fgColor = document.getElementById('fg-color').value;
+    const fgColor = document.getElementById('foreground-color').value;
 
     // this saves the user's preferences in localstorage
     localStorage.setItem('userName', name);//saves the name
@@ -40,5 +40,24 @@ function applyPreferences(){
     const savedBgColor = localStorage.getItem('bgColor');
     const savedFgColor = localStorage.getItem('fgColor');
 
+    //this will display a greeting to the saved name
+    if(savedName){
+        document.getElementById('greeting').textContent = 'Hello, ${savedName}';
+    }
 
+    //if the background color was saved then it will be applied
+    if(savedBgColor){
+        document.body.style.backgroundColor = savedBgColor;
+    }
+
+    //if the text color was saved than this will apply the color to the text 
+    if(savedFgColor){
+        document.body.style.color = savedFgColor;
+    }
 }
+
+// 
+document.getElementById('preferences-form').addEventListener('submit', savePreferences)
+
+//this calls the applypreferences function when the page loads
+window.addEventListener('load', applyPreferences);

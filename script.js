@@ -25,9 +25,15 @@ function savePreferences(event){
     const fgColor = document.getElementById('fg-color').value;
 
     // this saves the user's preferences in localstorage
-    localStorage.setItem('userName', name);
-    localStorage.setItem('bgColor', bgColor);
-    localStorage.setItem('fgColor', fgColor);
+    localStorage.setItem('userName', name);//saves the name
+    localStorage.setItem('bgColor', bgColor);//saves the background color
+    localStorage.setItem('fgColor', fgColor);//saves the text color
 
-    
+    // notifies the user that their preferences have been saved
+    alert('Your preferences have been saves')
+}
+
+//this will apply the saved preferences 
+function applyPreferences(){
+
 }

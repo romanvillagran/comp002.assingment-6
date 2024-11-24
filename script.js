@@ -34,6 +34,11 @@ function savePreferences(event){
 }
 
 //this will apply the saved preferences 
-function applyPreferences(){
+function applyPreferences(){    
+    // this will retrieve the saved preferences from the localstorage
+    const savedName = localStorage.getItem('userName');
+    const savedBgColor = localStorage.getItem('bgColor');
+    const savedFgColor = localStorage.getItem('fgColor');
+
 
 }
